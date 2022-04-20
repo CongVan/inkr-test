@@ -10,12 +10,13 @@ import {
 } from "antd";
 import clsx from "clsx";
 import { useState } from "react";
-import { TITLE } from "../../../data";
+
 import { UserOutlined } from "@ant-design/icons";
 
 import s from "./style.module.less";
+import { Title } from "../../../types/Title";
 
-const TitleAboutWidget = () => {
+const TitleAboutWidget: React.FC<{ title: Title }> = ({ title }) => {
   const [isExpand, setIsExpand] = useState(false);
 
   return (
@@ -38,7 +39,7 @@ const TitleAboutWidget = () => {
       <div className={s.block}>
         <Typography.Title level={5}>Genres</Typography.Title>
         <div>
-          {TITLE.genres.map((g) => (
+          {title.genres.map((g) => (
             <Tag key={g.name}> {g.name}</Tag>
           ))}
         </div>
@@ -46,20 +47,20 @@ const TitleAboutWidget = () => {
       <div className={s.block}>
         <Typography.Title level={5}>Summary</Typography.Title>
         <Typography.Paragraph ellipsis={isExpand ? false : { rows: 4 }}>
-          <p>{TITLE.description}</p>
+          <p>{title.description}</p>
         </Typography.Paragraph>
         {isExpand && (
           <Space direction="vertical" className={s.expandInfo} size="middle">
             <div className={s.imageGrid}>
-              {TITLE.images.map((img) => (
-                <Image key={img} src={img} alt="image" />
+              {title.images.map((img, idx) => (
+                <Image key={idx} src={img} alt="image" />
               ))}
             </div>
             <div>
               <Typography.Title level={5}>Credits</Typography.Title>
               <List
                 itemLayout="horizontal"
-                dataSource={TITLE.credits}
+                dataSource={title.credits}
                 renderItem={(item) => (
                   <List.Item style={{ border: "none" }}>
                     <List.Item.Meta
@@ -84,25 +85,25 @@ const TitleAboutWidget = () => {
                 colon={false}
               >
                 <Descriptions.Item label="Last Updated">
-                  {TITLE.updatedAt}
+                  {title.updatedAt}
                 </Descriptions.Item>
                 <Descriptions.Item label="Age Rating">
-                  {TITLE.ageRating}
+                  {title.ageRating}
                 </Descriptions.Item>
                 <Descriptions.Item label="Color">
-                  {TITLE.color}
+                  {title.color}
                 </Descriptions.Item>
                 <Descriptions.Item label="Origin Media">
-                  {TITLE.originMedia}
+                  {title.originMedia}
                 </Descriptions.Item>
                 <Descriptions.Item label="Style Origin">
-                  {TITLE.styleOrigin}
+                  {title.styleOrigin}
                 </Descriptions.Item>
                 <Descriptions.Item label="Copyright">
-                  {TITLE.copyright}
+                  {title.copyright}
                 </Descriptions.Item>
                 <Descriptions.Item label="Other Name">
-                  {TITLE.otherName}
+                  {title.otherName}
                 </Descriptions.Item>
               </Descriptions>
             </div>

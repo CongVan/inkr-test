@@ -1,17 +1,29 @@
-import { Button } from "antd";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import TitleLayout from "../components/title/TitleLayout";
-import styles from "../styles/Home.module.css";
+import { GetStaticProps } from "next";
+import { LocalService } from "../services/local";
 
-const Home: NextPage = () => {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { title, chapters, relatedTitles, comments } =
+    await LocalService.TitleAPI.getPageConfig();
+  return {
+    props: { title, chapters, relatedTitles, comments },
+  };
+};
+
+const Home: NextPage<any> = ({ title, chapters, relatedTitles, comments }) => {
   return (
     <>
       <Head>
         <title>INKR Test</title>
       </Head>
-      <TitleLayout />
+      <TitleLayout
+        title={title}
+        chapters={chapters}
+        relatedTitles={relatedTitles}
+        comments={comments}
+      />
     </>
   );
 };

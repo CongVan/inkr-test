@@ -1,12 +1,12 @@
 import { Button, Card, Space, Typography } from "antd";
+import { Title } from "../../../types/Title";
 
-import { TITLE } from "../../../data";
 import FIcon from "../../ui/icon";
 import s from "./style.module.less";
 
-const TitlePricingPromotionWidget = () => {
+const TitlePricingPromotionWidget: React.FC<{ title: Title }> = ({ title }) => {
   const pricedChapter =
-    TITLE.totalPriceCoin / (TITLE.totalChapter - TITLE.freeChapter);
+    title.totalPriceCoin / (title.totalChapter - title.freeChapter);
   return (
     <Card bordered={false}>
       <Typography.Title level={4}>Pricing and Promotion</Typography.Title>
@@ -19,7 +19,7 @@ const TitlePricingPromotionWidget = () => {
                   FREE
                 </Typography.Text>
                 <Typography.Title level={5} className={s.content}>
-                  {TITLE.freeChapter} Chapters
+                  {title.freeChapter} Chapters
                 </Typography.Title>
               </th>
               <th className={s.block}>
@@ -51,7 +51,7 @@ const TitlePricingPromotionWidget = () => {
                   </div>
                   <div>
                     <Button icon={<FIcon.Coin />}>
-                      <span>{TITLE.totalPriceCoin}</span>
+                      <span>{title.totalPriceCoin}</span>
                     </Button>
                   </div>
                 </div>
@@ -71,7 +71,7 @@ const TitlePricingPromotionWidget = () => {
                   <div>
                     <div className={s.buttonGroup}>
                       <Button className={s.discount} size={"large"}>
-                        -{TITLE.discount}%
+                        -{title.discount}%
                       </Button>
                       <Button
                         icon={<FIcon.Coin />}
@@ -79,11 +79,11 @@ const TitlePricingPromotionWidget = () => {
                         className={s.coin}
                       >
                         <span className={s.oldPrice}>
-                          {TITLE.totalPriceCoin}
+                          {title.totalPriceCoin}
                         </span>
                         <span className={s.salePrice}>
                           {Math.round(
-                            (TITLE.totalPriceCoin * TITLE.discount) / 100
+                            (title.totalPriceCoin * title.discount) / 100
                           )}
                         </span>
                       </Button>

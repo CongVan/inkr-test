@@ -8,17 +8,21 @@ import {
   Button,
   Input,
 } from "antd";
-import { COMMENTS } from "../../../data";
+
 import { LikeOutlined, MessageOutlined } from "@ant-design/icons";
 import moment from "moment";
 import FIcon from "../../ui/icon";
 import s from "./style.module.less";
 
-const TitleCommentWidget = () => {
+import { Comment as IComment } from "../../../types/Comment";
+
+const TitleCommentWidget: React.FC<{
+  comments: IComment[];
+}> = ({ comments }) => {
   return (
     <Card bordered={false}>
-      <Typography.Title level={4}>{COMMENTS.length} Comments</Typography.Title>
-      {COMMENTS.map((cmt, index) => (
+      <Typography.Title level={4}>{comments.length} Comments</Typography.Title>
+      {comments.map((cmt, index) => (
         <Comment
           key={index}
           actions={[

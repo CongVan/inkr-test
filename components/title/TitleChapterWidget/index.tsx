@@ -1,14 +1,19 @@
 import { Button, Card, Col, List, Row, Space, Typography } from "antd";
 import Image from "next/image";
 import { useMemo } from "react";
-import { CHAPTERS, TITLE } from "../../../data";
+
+import { Chapter } from "../../../types/Chapter";
+import { Title } from "../../../types/Title";
 import ChapterCardHorizontal from "../../chapter/ChapterCardHorizontal";
 import FIcon from "../../ui/icon";
 import s from "./style.module.less";
 
-const TitleChapterWidget = () => {
+const TitleChapterWidget: React.FC<{ title: Title; chapters: Chapter[] }> = ({
+  title,
+  chapters,
+}) => {
   const lastReads = useMemo(() => {
-    return [CHAPTERS[0]];
+    return [chapters[0]];
   }, []);
 
   return (
@@ -35,7 +40,7 @@ const TitleChapterWidget = () => {
           <Row justify="space-between" align="middle" className={s.header}>
             <Col flex={1}>
               <Typography.Title level={4}>
-                {TITLE.totalChapter} Chapters
+                {title.totalChapter} Chapters
               </Typography.Title>
               <Typography.Text type="secondary">
                 New chapter every Thursday
@@ -51,7 +56,7 @@ const TitleChapterWidget = () => {
         }
         itemLayout="vertical"
         size="large"
-        dataSource={CHAPTERS}
+        dataSource={chapters}
         renderItem={(item) => (
           <List.Item key={item.name} className={s.item}>
             <ChapterCardHorizontal chapter={item} />
