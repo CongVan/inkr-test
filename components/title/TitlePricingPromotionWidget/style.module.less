@@ -1,0 +1,93 @@
+@import "~/styles/variables.less";
+
+.wrapper {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  tr {
+    &:not(:last-child) {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 95%;
+        height: 1px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #000;
+        //   border-bottom: 1px solid #000;
+      }
+    }
+  }
+
+  th {
+    border-bottom: 1px solid #000;
+    width: 50%;
+    &:not(:last-child) {
+      border-right: 1px solid #000;
+    }
+  }
+  td,
+  th {
+    text-align: left;
+    background: @neutral-3;
+    padding: 1rem;
+    .label {
+      font-size: 1rem;
+      display: block;
+    }
+  }
+}
+.buttonGroup {
+  display: flex;
+  margin-bottom: 0.25rem;
+  button {
+    height: 40px;
+  }
+  .coin {
+    border-radius: 0 8px 8px 0;
+    border-left: none;
+    width: 89px;
+    .oldPrice {
+      text-decoration: line-through;
+      //   color: @blue-6:
+      font-size: 0.675rem;
+    }
+  }
+  .discount {
+    background: @purple-5;
+    border-radius: 8px 0px 0px 8px;
+    width: 60px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 1px;
+    text-align: center;
+    line-height: 28px;
+    &:hover,
+    &:focus {
+      border-color: @purple-5;
+      color: unset;
+    }
+  }
+}
+
+.verticalLine {
+  width: 1px;
+  height: 100%;
+  background: #000;
+}
+
+.priceWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.saveMoneyText {
+  color: @purple-7 !important;
+  font-weight: 500 !important;
+}

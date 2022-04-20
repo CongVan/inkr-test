@@ -1,0 +1,27 @@
+.block {
+  &:not(:last-of-type) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.card {
+  &:not(.expanded) {
+    :global(.ant-card-body) {
+      padding-bottom: 0;
+    }
+  }
+
+  :global(.ant-card-actions) {
+    border-top: none;
+  }
+}
+
+.imageGrid {
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.expandInfo {
+  margin-top: 1rem;
+}
