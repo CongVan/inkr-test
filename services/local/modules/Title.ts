@@ -6,11 +6,20 @@ class TitleAPI extends BaseAPI {
     this.resource = "/title";
   }
 
-  async getPageConfig() {
-    const { data } = await this.request.get(this.resource);
-    console.log("page config", data);
-
-    return data;
+  getPageConfig() {
+    return new Promise<any>((resolve) => {
+      // Fake call API
+      import("../../../data/index").then(
+        ({ TITLE, RELATED_TITLES, CHAPTERS, COMMENTS }) => {
+          resolve({
+            title: TITLE,
+            relatedTitles: RELATED_TITLES,
+            chapters: CHAPTERS,
+            comments: COMMENTS,
+          });
+        }
+      );
+    });
   }
 }
 export default new TitleAPI();

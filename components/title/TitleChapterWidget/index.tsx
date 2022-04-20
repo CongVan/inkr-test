@@ -14,7 +14,7 @@ const TitleChapterWidget: React.FC<{ title: Title; chapters: Chapter[] }> = ({
 }) => {
   const lastReads = useMemo(() => {
     return [chapters[0]];
-  }, []);
+  }, [chapters]);
 
   return (
     <Card bordered={false} className={s.card}>
