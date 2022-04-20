@@ -10,7 +10,7 @@ const ChapterCardHorizontal: React.FC<{ chapter: Chapter }> = ({ chapter }) => {
     <Row align="middle" justify="space-between">
       <Col flex={1}>
         <Space direction="horizontal">
-          <div className={clsx(s.thumb, chapter.priceCoin > 0 && s.lock)}>
+          <div className={clsx(s.thumbnail, chapter.priceCoin > 0 && s.lock)}>
             <Image alt="logo" layout="fill" src={chapter.thumbnail} />
             {chapter.priceCoin > 0 && (
               <div className={s.lockIcon}>
@@ -19,7 +19,7 @@ const ChapterCardHorizontal: React.FC<{ chapter: Chapter }> = ({ chapter }) => {
             )}
           </div>
           <div>
-            <Typography.Text>{chapter.name}</Typography.Text>{" "}
+            <Typography.Text className={s.name}>{chapter.name}</Typography.Text>{" "}
           </div>
         </Space>
       </Col>

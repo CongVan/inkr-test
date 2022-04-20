@@ -35,6 +35,8 @@ export const TITLE: Title = {
     "/images/title-image-1.png",
     "/images/title-image-2.png",
     "/images/title-image-3.png",
+    "/images/title-image-2.png",
+    "/images/title-image-2.png",
   ],
   otherName: "Kasane -voleuse de visage",
 };
@@ -105,6 +107,6 @@ export const COMMENTS: Comment[] = [
       likes: 61,
       replies: 35,
     },
-    createdAt: "2022/04/20",
+    createdAt: "2022-04-20 00:00:00",
   },
 ];

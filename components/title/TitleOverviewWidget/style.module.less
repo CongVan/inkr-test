@@ -1,3 +1,5 @@
+@import "~/styles/variables.less";
+
 .card {
   //   width: 100%;
 }
@@ -39,10 +41,14 @@
   display: block;
   font-size: 1rem;
   margin-bottom: 0.5rem !important;
+  color: @primary-65 !important;
 }
 .categoryWrapper {
   display: flex;
   font-size: 1rem;
+  span {
+    color: @primary-65 !important;
+  }
   .dot {
     margin: 0 0.25rem;
   }
@@ -55,6 +61,9 @@
     display: flex;
     align-items: baseline;
     margin-right: 1rem;
+    span {
+      color: @primary-65 !important;
+    }
     svg {
       margin-right: 0.25rem;
     }
@@ -63,7 +72,7 @@
 
 .tags {
   margin-top: 1rem;
-  .item {
-    // color: @primary;
+  span {
+    color: @primary-65 !important;
   }
 }

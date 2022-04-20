@@ -38,8 +38,13 @@
     background: @neutral-3;
     padding: 1rem;
     .label {
-      font-size: 1rem;
+      font-weight: 400;
       display: block;
+    }
+    .content,
+    .content h5 {
+      margin: 0;
+      font-weight: 500;
     }
   }
 }
@@ -90,4 +95,14 @@
 .saveMoneyText {
   color: @purple-7 !important;
   font-weight: 500 !important;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  margin: 1rem 0 0;
+  color: @primary-45;
+  font-weight: 500;
 }

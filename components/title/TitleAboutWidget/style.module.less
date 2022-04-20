@@ -1,6 +1,11 @@
+@import "~/styles/variables.less";
+
 .block {
   &:not(:last-of-type) {
     margin-bottom: 1.5rem;
+  }
+  p {
+    color: @primary-65 !important;
   }
 }
 
@@ -24,4 +29,23 @@
 
 .expandInfo {
   margin-top: 1rem;
+}
+
+.btnMore {
+  color: @primary-65 !important;
+}
+
+.fact {
+  :global(.ant-descriptions) {
+    :global(.ant-descriptions-item-label) {
+      position: relative;
+      color: @primary-45;
+      min-width: 110px;
+      &::after {
+        content: ":";
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
 }

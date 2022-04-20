@@ -27,30 +27,26 @@ const TitleOverviewWidget = () => {
               </div>
             </div>
 
-            <Typography.Text type="secondary" className={s.author}>
+            <Typography.Text className={s.author}>
               {TITLE.author}
             </Typography.Text>
             <div className={s.categoryWrapper}>
-              <Typography.Text type="secondary">
+              <Typography.Text>
                 {TITLE.category.name}
-              </Typography.Text>
-              <Typography.Text type="secondary" className={s.dot}>
-                •
-              </Typography.Text>
-              <Typography.Text type="secondary">
+                <span className={s.dot}>•</span>
                 {`${TITLE.totalChapter} Chapters`}
               </Typography.Text>
             </div>
             <div className={s.counting}>
               <div className={s.item}>
                 <FIcon.Read />
-                <Typography.Text type="secondary">
+                <Typography.Text>
                   {numeral(TITLE.reads).format("0,0")}
                 </Typography.Text>
               </div>
               <div className={s.item}>
                 <FIcon.Like />
-                <Typography.Text type="secondary">
+                <Typography.Text>
                   {numeral(TITLE.likes).format("0,0")}
                 </Typography.Text>
               </div>
@@ -58,7 +54,7 @@ const TitleOverviewWidget = () => {
             <div className={s.tags}>
               {TITLE.tags.map((t) => (
                 <Tag className={s.item} key={t.name}>
-                  <Typography.Text type="secondary">{t.name}</Typography.Text>
+                  <Typography.Text>{t.name}</Typography.Text>
                 </Tag>
               ))}
             </div>

@@ -1,4 +1,4 @@
-import { Button, Card, Col, Descriptions, Row, Space, Typography } from "antd";
+import { Button, Card, Space, Typography } from "antd";
 
 import { TITLE } from "../../../data";
 import FIcon from "../../ui/icon";
@@ -18,7 +18,7 @@ const TitlePricingPromotionWidget = () => {
                 <Typography.Text type="secondary" className={s.label}>
                   FREE
                 </Typography.Text>
-                <Typography.Title level={5} style={{ margin: "0" }}>
+                <Typography.Title level={5} className={s.content}>
                   {TITLE.freeChapter} Chapters
                 </Typography.Title>
               </th>
@@ -27,15 +27,13 @@ const TitlePricingPromotionWidget = () => {
                   LOOKED
                 </Typography.Text>
 
-                <Space direction="horizontal" wrap={true}>
-                  <Typography.Title level={5} style={{ margin: "0" }}>
-                    7 Chapters
-                  </Typography.Title>
+                <Space direction="horizontal" wrap={true} className={s.content}>
+                  <Typography.Title level={5}>7 Chapters</Typography.Title>
                   <Typography.Text
                     type="secondary"
                     style={{ fontWeight: "normal" }}
                   >
-                    ( <FIcon.Coin /> {pricedChapter}/ chapters )
+                    (<FIcon.Coin /> {pricedChapter} / chapters)
                   </Typography.Text>
                 </Space>
               </th>
@@ -90,7 +88,14 @@ const TitlePricingPromotionWidget = () => {
                         </span>
                       </Button>
                     </div>
-                    <Typography.Text type="secondary">
+                    <Typography.Text
+                      type="secondary"
+                      style={{
+                        fontSize: 12,
+                        display: "block",
+                        textAlign: "right",
+                      }}
+                    >
                       Saving rates may vary
                     </Typography.Text>
                   </div>
@@ -99,6 +104,11 @@ const TitlePricingPromotionWidget = () => {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div className={s.footer}>
+        <Typography.Text type="secondary">
+          Want to read for free? Learn more
+        </Typography.Text>
       </div>
     </Card>
   );

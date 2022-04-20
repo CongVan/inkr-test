@@ -23,7 +23,11 @@ const TitleAboutWidget = () => {
       bordered={false}
       actions={
         !isExpand && [
-          <Typography.Text key={"More"} onClick={() => setIsExpand(!isExpand)}>
+          <Typography.Text
+            key={"More"}
+            className={s.btnMore}
+            onClick={() => setIsExpand(!isExpand)}
+          >
             Show more
           </Typography.Text>,
         ]
@@ -42,7 +46,7 @@ const TitleAboutWidget = () => {
       <div className={s.block}>
         <Typography.Title level={5}>Summary</Typography.Title>
         <Typography.Paragraph ellipsis={isExpand ? false : { rows: 4 }}>
-          {TITLE.description}
+          <p>{TITLE.description}</p>
         </Typography.Paragraph>
         {isExpand && (
           <Space direction="vertical" className={s.expandInfo} size="middle">
@@ -57,7 +61,7 @@ const TitleAboutWidget = () => {
                 itemLayout="horizontal"
                 dataSource={TITLE.credits}
                 renderItem={(item) => (
-                  <List.Item>
+                  <List.Item style={{ border: "none" }}>
                     <List.Item.Meta
                       avatar={
                         <Avatar src={item.avatar} size={40}>
@@ -77,7 +81,7 @@ const TitleAboutWidget = () => {
                 layout="horizontal"
                 bordered={false}
                 column={1}
-                labelStyle={{ color: "rgba(255, 255, 255, 0.45)" }}
+                colon={false}
               >
                 <Descriptions.Item label="Last Updated">
                   {TITLE.updatedAt}
